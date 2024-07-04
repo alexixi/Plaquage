@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    background-color: #eef1ff;
+    color: #eef1ff;
+    font-size: 2rem;
+}
+
+#page {
+    border-radius: 40px;
+    background-color: #003d5c;
+    width: 32rem;
+    max-width: 81%;
+    margin-top: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    padding-left: 3rem;
+    padding-top: 1.4rem;
+    padding-bottom: 3rem;
+    font-family: 'Playwrite DE Grund', Arial, Helvetica, sans-serif;
+}
+
+.viennoiserie {
+    height: 6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nombre-a-plaquer {
+    font-weight: 900;
+    font-size: 2.3rem;
+    margin-right: 3rem;
+    margin-left: 1rem;
+}
+
+.nombre-input {
+    background-color: #eef1ff;
+    border: 0;
+    border-radius: 4px;
+    font-size: 1.65rem;
+    font-family: 'Playwrite DE Grund', Arial, Helvetica, sans-serif;
+    width: 3.5rem;
+    margin-left: 0.65rem;
+    vertical-align: middle;
+}
+
+.jour {
+    margin-top: 0.5rem;
+}
+
+select {
+    background-color: #eef1ff;
+    border: 0;
+    border-radius: 4px;
+    font-size: 1.4rem;
+    font-family: 'Playwrite DE Grund', Arial, Helvetica, sans-serif;
+    margin-left: 0.65rem;
+    vertical-align: middle;
+}
+
+
+@media screen and (max-width: 550px) {
+    #page {
+        padding-top: 1.1rem;
+        max-width: 88%;
+        padding-left: 1.3rem;
+        font-size: 1.5rem;
+    }
+    select {
+        font-size: 1rem;
+        margin-left: 0.6rem;
+    }
+    .viennoiserie {
+        height: 4.8rem;
+    }
+    .nombre-input {
+        font-size: 1.2rem;
+        width: 2.8rem;
+        margin-left: 0.6rem;
+    }
+    .nombre-a-plaquer {
+        font-weight: 900;
+        font-size: 1.8rem;
+        margin-right: 2.5rem;
+    }
+}
+@media screen and (max-width: 390px) {
+    #page {
+        padding-top: 1rem;
+        max-width: 90%;
+        padding-left: 1.1rem;
+        font-size: 1.2rem;
+    }
+    .viennoiserie {
+        height: auto;
+    }
+    .nombre-input {
+        font-size: 1.1rem;
+        width: 2.5rem;
+        margin-left: 0.5rem;
+    }
+    .nombre-a-plaquer {
+        margin-top: -1rem;
+        font-size: 1.3rem;
+    }
+}
