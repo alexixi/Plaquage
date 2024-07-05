@@ -7,9 +7,9 @@
     <title>Plaquage</title>
     <meta name="author" content="Alexis">
     <meta name="creator" content="Alexis">
-    <link rel="icon" type="image/x-icon" href="./images/logo_fournil_montesquieu.jpg"/>
+    <link rel="icon" type="image/x-icon" href="./Plaquage/images/logo_fournil_montesquieu.jpg"/>
 
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./Plaquage/styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap" rel="stylesheet">
@@ -29,13 +29,13 @@
             </select>
         </div>
         <div class="plaquage-conteiner">
-            <div class="viennoiserie" v-for=" viennoiserie in donnes_plaquage[jourNameClean()] ">
+            <div class="viennoiserie" v-for=" viennoiserie in donnes_plaquage ">
                 <div class="viennoiserie-input">
                     <label :for="clean(viennoiserie.nom)+'-input'"> {{ viennoiserie.nom }} </label>
                     <input v-model.number="viennoiserie.nombre_actuel" type="number" class="nombre-input" :name="'nombre de '+clean(viennoiserie.nom)" :id="clean(viennoiserie.nom)+'-input'" min="0" max="30" step="1" autocomplete="off">
                 </div>
                 <div class="nombre-a-plaquer">
-                    <p>{{ Math.max(viennoiserie.nombre_plaquage - viennoiserie.nombre_actuel, 0) }}</p>
+                    <p>{{ Math.max(viennoiserie.nombre_plaquage[jourNameClean()] - viennoiserie.nombre_actuel, 0) }}</p>
                 </div>
             </div>
         </div>
@@ -47,78 +47,16 @@
                     init_done: false,
                     jours: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
                     jour_selectionne: '',
-                    donnes_plaquage: {
-                        lundi: [
-                            {nom: "Donut nature", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Donut framboise", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Donut chocolat", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Muffin Pépittes", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Muffin Chocolat", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Mascotte", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Tigré", nombre_actuel: '', nombre_plaquage: 15},
-                            {nom: "Mini beignet", nombre_actuel: '', nombre_plaquage: 24}
-                        ],
-                        mardi: [
-                            {nom: "Donut nature", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Donut framboise", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Donut chocolat", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Muffin Pépittes", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Muffin Chocolat", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Mascotte", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Tigré", nombre_actuel: '', nombre_plaquage: 15},
-                            {nom: "Mini beignet", nombre_actuel: '', nombre_plaquage: 24}
-                        ],
-                        mercredi: [
-                            {nom: "Donut nature", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Donut framboise", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Donut chocolat", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Muffin Pépittes", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Muffin Chocolat", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Mascotte", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Tigré", nombre_actuel: '', nombre_plaquage: 15},
-                            {nom: "Mini beignet", nombre_actuel: '', nombre_plaquage: 24}
-                        ],
-                        jeudi: [
-                            {nom: "Donut nature", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Donut framboise", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Donut chocolat", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Muffin Pépittes", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Muffin Chocolat", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Mascotte", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Tigré", nombre_actuel: '', nombre_plaquage: 15},
-                            {nom: "Mini beignet", nombre_actuel: '', nombre_plaquage: 24}
-                        ],
-                        vendredi: [
-                            {nom: "Donut nature", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Donut framboise", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Donut chocolat", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Muffin Pépittes", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Muffin Chocolat", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Mascotte", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Tigré", nombre_actuel: '', nombre_plaquage: 15},
-                            {nom: "Mini beignet", nombre_actuel: '', nombre_plaquage: 24}
-                        ],
-                        samedi: [
-                            {nom: "Donut nature", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Donut framboise", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Donut chocolat", nombre_actuel: '', nombre_plaquage: 8},
-                            {nom: "Muffin Pépittes", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Muffin Chocolat", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Mascotte", nombre_actuel: '', nombre_plaquage: 6},
-                            {nom: "Tigré", nombre_actuel: '', nombre_plaquage: 15},
-                            {nom: "Mini beignet", nombre_actuel: '', nombre_plaquage: 24}
-                        ],
-                        dimanche: [
-                            {nom: "Donut nature", nombre_actuel: '', nombre_plaquage: 3},
-                            {nom: "Donut framboise", nombre_actuel: '', nombre_plaquage: 3},
-                            {nom: "Donut chocolat", nombre_actuel: '', nombre_plaquage: 3},
-                            {nom: "Muffin Pépittes", nombre_actuel: '', nombre_plaquage: 3},
-                            {nom: "Muffin Chocolat", nombre_actuel: '', nombre_plaquage: 3},
-                            {nom: "Mascotte", nombre_actuel: '', nombre_plaquage: 3},
-                            {nom: "Tigré", nombre_actuel: '', nombre_plaquage: 15},
-                            {nom: "Mini beignet", nombre_actuel: '', nombre_plaquage: 24}
-                        ]
-                    }
+                    donnes_plaquage: [
+                        {nom: "Donut nature", nombre_actuel: '', nombre_plaquage: {lundi: 6, mardi: 6, mercredi: 6, jeudi: 6, vendredi: 6, samedi: 6, dimanche: 3}},
+                        {nom: "Donut framboise", nombre_actuel: '', nombre_plaquage: {lundi: 8, mardi: 8, mercredi: 8, jeudi: 8, vendredi: 8, samedi: 8, dimanche: 3}},
+                        {nom: "Donut chocolat", nombre_actuel: '', nombre_plaquage: {lundi: 8, mardi: 8, mercredi: 8, jeudi: 8, vendredi: 8, samedi: 8, dimanche: 3}},
+                        {nom: "Muffin Pépittes", nombre_actuel: '', nombre_plaquage: {lundi: 6, mardi: 6, mercredi: 8, jeudi: 6, vendredi: 6, samedi: 6, dimanche: 3}},
+                        {nom: "Muffin Chocolat", nombre_actuel: '', nombre_plaquage: {lundi: 6, mardi: 6, mercredi: 8, jeudi: 6, vendredi: 6, samedi: 6, dimanche: 3}},
+                        {nom: "Mascotte", nombre_actuel: '', nombre_plaquage: {lundi: 6, mardi: 6, mercredi: 6, jeudi: 6, vendredi: 6, samedi: 6, dimanche: 3}},
+                        {nom: "Tigré", nombre_actuel: '', nombre_plaquage: {lundi: 15, mardi: 15, mercredi: 15, jeudi: 15, vendredi: 15, samedi: 15, dimanche: 15}},
+                        {nom: "Mini beignet", nombre_actuel: '', nombre_plaquage: {lundi: 24, mardi: 24, mercredi: 24, jeudi: 24, vendredi: 24, samedi: 24, dimanche: 24}}
+                    ]
                 }
             },
             mounted () {
